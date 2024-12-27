@@ -41,31 +41,53 @@ public class MultiplayerUserInterface {
                 1. Choose a class
                 2. Choose a primary weapon
                 3. Choose a secondary weapon
-                4. Choose a lethal
-                5. Choose an ability
-                6. Save loadout
-                7. exit
+                4. choose a melee weapon
+                5. Choose a lethal
+                6. Choose an ability
+                7. Save loadout
+                8. exit
                 
                 """);
+        String choice = s.nextLine();
 
-    }
+        switch (choice) {
+            case "1":
+                chooseAClass();
+                break;
+            case "2":
+                chooseAPrimaryWeapon();
+                break;
+            case "3":
+                chooseASecondaryWeapon();
+                break;
+            case "4":
+                chooseAMeleeWeapon();
+                break;
+            case "5":
+                chooseALethal();
+                break;
+            case "6":
+                chooseAnAbility();
+                break;
+            case "7":
+               saveLoadout();
+               break;
+            case "8":
+                System.out.println("Returning to multiplayer");
+            default:
+                System.out.println("Invalid response please chose a number between 1 and 8");
+        }
 
-    public void createLoadOut() {
-        chooseAClass();
-        chooseAPrimaryWeapon();
-        chooseASecondaryWeapon();
-        chooseAMeleeWeapon();
-        chooseALethal();
-        chooseAnAbility();
-
-        LoadOuts loadOuts = new LoadOuts("", "", "", "", "", "");
-        SaveLoadOut();
-    }
-
-    private void chooseAMeleeWeapon() {
     }
 
     private void chooseAClass() {
+        System.out.println("""
+                1. Light
+                2. Medium
+                3. Heavy
+               
+                """);
+        String choice = s.nextLine();
     }
 
     private void chooseAPrimaryWeapon() {
@@ -74,12 +96,15 @@ public class MultiplayerUserInterface {
     private void chooseASecondaryWeapon() {
     }
 
+    private void chooseAMeleeWeapon() {
+    }
+
     private void chooseALethal() {
     }
 
     private void chooseAnAbility() {
     }
 
-    private void SaveLoadOut() {
+    private void saveLoadout() {
     }
 }
