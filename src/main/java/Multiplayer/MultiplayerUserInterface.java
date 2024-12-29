@@ -1,5 +1,9 @@
 package Multiplayer;
 
+import com.pluralsight.rollout.HeavyClass;
+import com.pluralsight.rollout.LightClass;
+import com.pluralsight.rollout.MediumClass;
+
 import java.util.Scanner;
 
 public class MultiplayerUserInterface {
@@ -13,6 +17,7 @@ public class MultiplayerUserInterface {
                     2) Capture the Flag
                     3) Free for all
                     4) Loadouts
+                    5) Return to title screen
                     """);
 
             String choice = s.nextLine();
@@ -30,6 +35,9 @@ public class MultiplayerUserInterface {
                     // return method for load outs
                     loadOuts();
                     break;
+                case "5":
+                    System.out.println("Returning to title screen");
+                    userGameModeChoice = false;
                 default:
                     System.out.println("Sorry please enter one of the following options ");
             }
@@ -70,8 +78,8 @@ public class MultiplayerUserInterface {
                 chooseAnAbility();
                 break;
             case "7":
-               saveLoadout();
-               break;
+                saveLoadout();
+                break;
             case "8":
                 System.out.println("Returning to multiplayer");
             default:
@@ -81,16 +89,41 @@ public class MultiplayerUserInterface {
     }
 
     private void chooseAClass() {
-        System.out.println("""
+        boolean uInput = true;
+        CharacterClassType playerClass = null;
+
+        while (uInput){
+            System.out.println("""
                 1. Light
                 2. Medium
                 3. Heavy
-               
+                4. Go Back
+                
                 """);
-        String choice = s.nextLine();
+            String choice = s.nextLine();
+
+            switch (choice) {
+                case "1" -> playerClass = new LightClass(250.00, 8.00, 25.00);
+
+                case "2" -> playerClass = new MediumClass(350.00, 5.00, 50.00);
+
+                case "3" -> playerClass = new HeavyClass(475.00, 2.00, 100.00);
+
+                case "4" -> loadOuts();
+
+                default -> System.out.println("Invalid response please choose a number between 1 and 4.");
+            }
+            if (playerClass != null) {
+                System.out.println("class info");
+                System.out.println("Health:" + playerClass.getHealth());
+                System.out.println("Speed:" + playerClass.getSpeed());
+                System.out.println("Damage:" + playerClass.getDamage());
+            }
+        }
     }
 
     private void chooseAPrimaryWeapon() {
+
     }
 
     private void chooseASecondaryWeapon() {

@@ -3,7 +3,7 @@ package Multiplayer;
 public class LoadOuts {
     private String classType;
     private String primaryWeapon;
-    private  String secondaryWeapon;
+    private String secondaryWeapon;
     private String ability;
     private String meleeWeapon;
     private String lethals;
