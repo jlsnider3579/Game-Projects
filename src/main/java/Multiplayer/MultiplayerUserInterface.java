@@ -45,7 +45,9 @@ public class MultiplayerUserInterface {
     }
 
     public void loadOuts() {
-        System.out.println("""
+        boolean exit = false;
+        while (!exit){
+            System.out.println("""
                 1. Choose a class
                 2. Choose a primary weapon
                 3. Choose a secondary weapon
@@ -56,43 +58,45 @@ public class MultiplayerUserInterface {
                 8. exit
                 
                 """);
-        String choice = s.nextLine();
+            String choice = s.nextLine();
 
-        switch (choice) {
-            case "1":
-                chooseAClass();
-                break;
-            case "2":
-                chooseAPrimaryWeapon();
-                break;
-            case "3":
-                chooseASecondaryWeapon();
-                break;
-            case "4":
-                chooseAMeleeWeapon();
-                break;
-            case "5":
-                chooseALethal();
-                break;
-            case "6":
-                chooseAnAbility();
-                break;
-            case "7":
-                saveLoadout();
-                break;
-            case "8":
-                System.out.println("Returning to multiplayer");
-            default:
-                System.out.println("Invalid response please chose a number between 1 and 8");
+            switch (choice) {
+                case "1":
+                    chooseAClass();
+                    break;
+                case "2":
+                    chooseAPrimaryWeapon();
+                    break;
+                case "3":
+                    chooseASecondaryWeapon();
+                    break;
+                case "4":
+                    chooseAMeleeWeapon();
+                    break;
+                case "5":
+                    chooseALethal();
+                    break;
+                case "6":
+                    chooseAnAbility();
+                    break;
+                case "7":
+                    saveLoadOut();
+                    break;
+                case "8":
+                    System.out.println("Returning to multiplayer");
+                    exit = true;
+                    break;
+                default:
+                    System.out.println("Invalid response please chose a number between 1 and 8");
+            }
         }
-
     }
 
     private void chooseAClass() {
-        boolean uInput = true;
+        boolean goBck = false;
         CharacterClassType playerClass = null;
 
-        while (uInput){
+        while (!goBck){
             System.out.println("""
                 1. Light
                 2. Medium
@@ -109,7 +113,7 @@ public class MultiplayerUserInterface {
 
                 case "3" -> playerClass = new HeavyClass(475.00, 2.00, 100.00);
 
-                case "4" -> loadOuts();
+                case "4" -> goBck = true;
 
                 default -> System.out.println("Invalid response please choose a number between 1 and 4.");
             }
@@ -138,6 +142,6 @@ public class MultiplayerUserInterface {
     private void chooseAnAbility() {
     }
 
-    private void saveLoadout() {
+    private void saveLoadOut() {
     }
 }

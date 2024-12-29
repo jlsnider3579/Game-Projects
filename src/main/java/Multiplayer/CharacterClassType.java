@@ -15,25 +15,16 @@ public abstract class CharacterClassType {
         return health;
     }
 
-    public void setHealth(int health) {
-        this.health = health;
-    }
 
     public double getSpeed() {
         return speed;
     }
 
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
 
     public double getDamage() {
         return damage;
     }
 
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
 
     @Override
     public String toString() {
